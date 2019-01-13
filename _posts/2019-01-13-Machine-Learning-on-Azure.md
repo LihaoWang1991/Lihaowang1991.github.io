@@ -1,13 +1,13 @@
 ---
 layout:     post
-title:      从一道网易面试题浅谈 Tagged Pointer
-subtitle:   浅谈 Tagged Pointer
-date:       2017-12-26
-author:     BY
+title:      Creating and deploying machine learning projects on Azure
+subtitle:   
+date:       2019-01-13
+author:     Lihao Wang
 header-img: img/post-bg-universe.jpg
 catalog: true
 tags:
-    - iOS
+    - Cloud
 ---
 
 
