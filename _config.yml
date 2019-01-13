@@ -18,13 +18,15 @@ sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's us
 
 # SNS settings
 
-RSS: false
+RSS: true
 # weibo_username:     qiubaiying
 github_username:    lihaowang1991
 linkedin_username:    lhwang1
 #twitter_username:   qiubaiying
 
-
+share-links-active:
+  github: true
+  linkedin: true
 
 
 # Build settings
