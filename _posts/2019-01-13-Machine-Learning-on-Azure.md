@@ -1,19 +1,19 @@
 ---
 layout:     post
-title:      Creating and deploying machine learning projects on Azure
+title:      Machine learning on Azure
 subtitle:   
 date:       2019-01-13
 author:     Lihao Wang
 header-img: img/post-bg-universe.jpg
 catalog: true
 tags:
-    - Cloud
+    - Cloud Computing
 ---
 
 
 ## 前言
 
-这篇博客九月就想写了，因为赶项目拖了到现在，抓住17年尾巴写吧~
+This is my first machine learning project on Azure.
 
 
 ## 正文
