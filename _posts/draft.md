@@ -5,13 +5,23 @@ Like Google Cloud in Google and AWS in Amazon, Azure is the cloud computing plat
 
 ![](https://github.com/LihaoWang1991/lihaowang1991.github.io/blob/master/img/post-azure2.jpg)
 
-Azure Machine Learning service fully supports open-source technologies. That means you can use open-source Python packages such as TensorFlow and scikit-learn. If you are familiar with coding using Jupyter Notebook, then Azure Machine Learning service can be a good choice to you because it has the same programming interface which is called Azure Notebooks. Nevertheless, you can also code on your local Python IDE but you need to install [Azure Python SDK](https://docs.microsoft.com/zh-cn/python/api/overview/azure/ml/intro?view=azure-ml-py) packages at first. 
+Like most machine learning platforms, the supported language on Azure Machine Learning service is Python. It fully supports open-source technologies. That means you can use open-source Python packages such as TensorFlow and scikit-learn. If you are familiar with coding using Jupyter Notebook, then Azure Machine Learning service can be a good choice to you because it has the same programming interface which is called [Azure Notebooks](https://notebooks.azure.com/). Nevertheless, you can also code on your local Python IDE but you need to install [Azure Python SDK](https://docs.microsoft.com/zh-cn/python/api/overview/azure/ml/intro?view=azure-ml-py) packages at first. 
 
-By following the [official tutorial](https://docs.microsoft.com/en-us/azure/machine-learning/service/), I have created and deployed a little project I have done before on Azure Machine Leraning service. Here are some important notes I find during this project.
+After learning the [official tutorials](https://docs.microsoft.com/en-us/azure/machine-learning/service/), I have deployed a little project I have done before on Azure Machine Leraning service. Here are some important notes I find during this project.
 
 ## Creating an Azure Machine Learning Workspace
 
-The project begins by the creation of an Azure Machine Learning Workspace. 
+The project begins by creating an Azure Machine Learning Workspace. 
+
+The workspace is the top-level resource for Azure Machine Learning service. It provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning service. The workspace keeps a list of compute targets that you can use to train your model. It also keeps a history of the training runs, including logs, metrics, output, and a snapshot of your scripts. You use this information to determine which training run produces the best model. 
+
+During the creation of the workspace, you may find some new terms as following:
+
+![](https://github.com/LihaoWang1991/lihaowang1991.github.io/blob/master/img/post-azure1.jpg)
+
+Here is a brief explanation:
+
+Resource group: A resource group is a container that holds related resources for an Azure solution.
 
 
 ## 正文
