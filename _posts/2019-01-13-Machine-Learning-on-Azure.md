@@ -22,7 +22,7 @@ Like most machine learning platforms, the supported language on Azure Machine Le
 
 After learning the [official tutorials](https://docs.microsoft.com/en-us/azure/machine-learning/service/), I have deployed a little project I have done before on Azure Machine Leraning service. Here are some important notes I find during this project.
 
-### Creating an Azure Machine Learning Workspace
+## Creating an Azure Machine Learning Workspace
 
 The project begins by creating an Azure Machine Learning Workspace. 
 
@@ -33,5 +33,12 @@ The workspace is created on [Azure Portal](portal.azure.com) as below:
 ![](https://i.postimg.cc/wxtDfhnH/post-azure1.png)
 
 **Resource group** means the container that holds related resources for an Azure solution.The machine learning workspace must be allocated to one resource group.
+
+On the created workspace, we can see its main functions such as experiments, pipelines, compute, deployments, etc. After clicking the the button **Open Azure Notebooks**, the page [Azure Notebooks](https://notebooks.azure.com/) will open so that you can configure the workspace, create and run your machine learning model by coding in it.
+
+![](https://i.postimg.cc/tCGxqT3P/post-azure3.png)
+
+
+
 
 
