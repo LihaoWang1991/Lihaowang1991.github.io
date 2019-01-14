@@ -19,9 +19,11 @@ The workspace is created on [Azure Portal](portal.azure.com) as below:
 
 ![](https://github.com/LihaoWang1991/lihaowang1991.github.io/blob/master/img/post-azure1.jpg)
 
-Here is a brief explanation:
+**Resource group** means the container that holds related resources for an Azure solution.The machine learning workspace must be allocated to one resource group.
 
-Resource group: A resource group is a container that holds related resources for an Azure solution.
+
+
+
 
 
 ## 正文
