@@ -5,11 +5,13 @@ Like Google Cloud in Google and AWS in Amazon, Azure is the cloud computing plat
 
 ![](https://github.com/LihaoWang1991/lihaowang1991.github.io/blob/master/img/post-azure2.jpg)
 
+Azure Machine Learning service fully supports open-source technologies. That means you can use open-source Python packages such as TensorFlow and scikit-learn. If you are familiar with coding using Jupyter Notebook, then Azure Machine Learning service can be a good choice to you because it has the same programming interface which is called Azure Notebooks. Nevertheless, you can also code on your local Python IDE but you need to install [Azure Python SDK](https://docs.microsoft.com/zh-cn/python/api/overview/azure/ml/intro?view=azure-ml-py) packages at first. 
+
 By following the [official tutorial](https://docs.microsoft.com/en-us/azure/machine-learning/service/), I have created and deployed a little project I have done before on Azure Machine Leraning service. Here are some important notes I find during this project.
 
-## Creation of Azure Machine Learning Workspace
+## Creating an Azure Machine Learning Workspace
 
-This is my first machine learning project on Azure.
+The project begins by the creation of an Azure Machine Learning Workspace. 
 
 
 ## 正文
