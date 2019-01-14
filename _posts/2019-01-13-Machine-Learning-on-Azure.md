@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Machine learning on Azure
+title:      Machine Learning on Azure
 subtitle:   
 date:       2019-01-13
 author:     Lihao Wang
@@ -34,10 +34,11 @@ The workspace is created on [Azure Portal](portal.azure.com) as below:
 
 **Resource group** means the container that holds related resources for an Azure solution.The machine learning workspace must be allocated to one resource group.
 
-On the created workspace, we can see its main functions such as experiments, pipelines, compute, deployments, etc. After clicking the the button **Open Azure Notebooks**, the page [Azure Notebooks](https://notebooks.azure.com/) will open so that you can configure the workspace, create and run your machine learning model by coding in it.
+In the created workspace, we can see its main functions such as Experiments, Pipelines, Compute, Deployments, etc. After clicking the the button **Open Azure Notebooks**, the page [Azure Notebooks](https://notebooks.azure.com/) will open so that you can configure the workspace, create and run your machine learning model by coding in it.
 
 ![](https://i.postimg.cc/tCGxqT3P/post-azure3.png)
 
+There should be a config.json file in the Azure Notebook. This config file contains information about the workspace you created. 
 
 
 
