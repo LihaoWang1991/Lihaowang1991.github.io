@@ -1,6 +1,7 @@
-Like Google Cloud in Google and AWS in Amzon, Azure is the cloud computing service created by Microsoft. Its main services include computing, mobile services, storage services, data management, media services, machine learning, IoT, etc. 
+Like Google Cloud in Google and AWS in Amazon, Azure is the cloud computing platform provided by Microsoft. Its main services include computing, mobile services, storage services, data management, media services, machine learning, IoT, etc. 
 
-You can find [here](https://docs.microsoft.com/en-us/azure/machine-learning/service/overview-what-is-azure-ml) a detailed introduction of Azure Machine Learning service. 
+
+[Azure Machine Learning service](https://docs.microsoft.com/en-us/azure/machine-learning/service/overview-what-is-azure-ml) is a Azure service that allows us to train, deploy, automate, and manage machine learning models, all at the broad scale that the cloud provides. 
 
 ## Creation of Azure Machine Learning Workspace
 
