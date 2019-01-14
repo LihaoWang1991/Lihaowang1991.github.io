@@ -5,6 +5,8 @@ Like Google Cloud in Google and AWS in Amazon, Azure is the cloud computing plat
 
 ![](https://github.com/LihaoWang1991/lihaowang1991.github.io/blob/master/img/post-azure2.jpg)
 
+By following the [official tutorial](https://docs.microsoft.com/en-us/azure/machine-learning/service/), I have created and deployed a little project I have done before on Azure Machine Leraning service. Here are some important notes I find during this project.
+
 ## Creation of Azure Machine Learning Workspace
 
 This is my first machine learning project on Azure.
