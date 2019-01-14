@@ -1,5 +1,7 @@
 Like Google Cloud in Google and AWS in Amzon, Azure is the cloud computing service created by Microsoft. Its main services include computing, mobile services, storage services, data management, media services, machine learning, IoT, etc. 
 
+You can find [here](https://docs.microsoft.com/en-us/azure/machine-learning/service/overview-what-is-azure-ml) a detailed introduction of Azure Machine Learning service. 
+
 ## Creation of Azure Machine Learning Workspace
 
 This is my first machine learning project on Azure.
@@ -88,7 +90,7 @@ Tagged Pointer 是一个能够提升性能、节省内存的有趣的技术。
 
 ### 参考：
 
-- [从一道网易面试题浅谈OC线程安全](https://www.jianshu.com/p/cec2a41aa0e7)
+- [What is Azure Machine Learning service?](https://docs.microsoft.com/en-us/azure/machine-learning/service/overview-what-is-azure-ml)
 
 - [深入理解Tagged Pointer](http://www.infoq.com/cn/articles/deep-understanding-of-tagged-pointer)
 
