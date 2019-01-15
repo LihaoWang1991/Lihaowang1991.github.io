@@ -41,10 +41,10 @@ In the created workspace, we can see its main functions such as Experiments, Pip
 ## Set up the development environment
 All the setup for the development work can be accomplished in a Python notebook. Setup includes the following actions:
 
-## Import Python packages. ##
-## Connect to a workspace, so that your local computer can communicate with remote resources. ##
-# Create an experiment to track all your runs. ##
-# Create a remote compute target to use for training. ##
+* **Import Python packages.** 
+* **Connect to a workspace, so that your local computer can communicate with remote resources. **
+* **Create an experiment to track all your runs. **
+* **Create a remote compute target to use for training. **
 
 
 
