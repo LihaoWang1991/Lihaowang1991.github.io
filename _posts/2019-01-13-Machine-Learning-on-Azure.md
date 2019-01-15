@@ -46,6 +46,14 @@ All the setup for the development work can be accomplished in a Python notebook.
 * **Create an experiment to track all your runs.**
 * **Create a remote compute target to use for training.**
 
+### Import packages
+Import Python packages we need in this session. 
+
+```
+- (void)updateMeters; /* call to refresh meter values */ 更新麦克风测量值
+- (float)peakPowerForChannel:(NSUInteger)channelNumber; /* returns peak power in decibels for a given channel */ 获取峰值
+- (float)averagePowerForChannel:(NSUInteger)channelNumber; /* returns average power in decibels for a given channel */ 获取平局值
+```
 
 
 
