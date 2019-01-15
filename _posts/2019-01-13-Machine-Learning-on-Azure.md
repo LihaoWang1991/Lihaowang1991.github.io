@@ -38,7 +38,13 @@ In the created workspace, we can see its main functions such as Experiments, Pip
 
 ![](https://i.postimg.cc/tCGxqT3P/post-azure3.png)
 
-There should be a config.json file in the Azure Notebook. This config file contains information about the workspace you created. 
+## Set up the development environment
+All the setup for the development work can be accomplished in a Python notebook. Setup includes the following actions:
+
+# Import Python packages.
+# Connect to a workspace, so that your local computer can communicate with remote resources.
+# Create an experiment to track all your runs.
+# Create a remote compute target to use for training.
 
 
 
