@@ -46,7 +46,7 @@ All the setup for the development work can be accomplished in a Python notebook.
 * **Create an experiment to track all your runs.**
 * **Create a remote compute target to use for training.**
 
-### Import packages
+#### Import packages
 Import Python packages we need in this session. 
 
 ```
@@ -58,7 +58,7 @@ import matplotlib.pyplot as plt
 import azureml
 from azureml.core import Workspace, Run
 ```
-### Connect to a workspace
+#### Connect to a workspace
 Before this step, we need to put a file called **config.json** in the current folder as below.  
 
 ![](https://i.postimg.cc/vTgfpB7Y/post-azure4.png)
@@ -78,7 +78,7 @@ Then we can go back to Azure Notebook and create a workspace object from the exi
 ws = Workspace.from_config()
 print(ws.name, ws.location, ws.resource_group, sep = '\t')
 ```
-### Create an experiment
+#### Create an experiment
 Create an experiment to track the runs in the workspace. A workspace can have multiple experiments:
 
 ```
@@ -87,7 +87,7 @@ from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### Create or attach an existing AMlCompute
+#### Create or attach an existing AMlCompute
 By using Azure Machine Learning Compute (AmlCompute), a managed service, we can train machine learning models on clusters of Azure virtual machines. Examples include VMs with GPU support. In this project, we create AmlCompute as our training environment. This code creates the compute clusters for us if they don't already exist in our workspace.
 Creation of the compute takes about five minutes. If the compute is already in the workspace, this code uses it and skips the creation process:
 
