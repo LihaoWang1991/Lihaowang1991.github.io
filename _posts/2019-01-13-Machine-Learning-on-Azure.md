@@ -50,9 +50,21 @@ All the setup for the development work can be accomplished in a Python notebook.
 Import Python packages we need in this session. 
 
 ```
-- (void)updateMeters; /* call to refresh meter values */ 更新麦克风测量值
-- (float)peakPowerForChannel:(NSUInteger)channelNumber; /* returns peak power in decibels for a given channel */ 获取峰值
-- (float)averagePowerForChannel:(NSUInteger)channelNumber; /* returns average power in decibels for a given channel */ 获取平局值
+%matplotlib inline
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+
+import azureml
+from azureml.core import Workspace, Run
+```
+### Connect to a workspace
+Create a workspace object from the existing workspace. Workspace.from_config() reads the file **config.json** and loads the details into an object named ws:
+
+```
+# load workspace configuration from the config.json file in the current folder.
+ws = Workspace.from_config()
+print(ws.name, ws.location, ws.resource_group, sep = '\t')
 ```
 
 
