@@ -147,14 +147,14 @@ from cnn_utils import *
 # Loading the data (signs)
 X_train_orig, Y_train_orig, X_test_orig, Y_test_orig, classes = load_dataset()
 
-# Normalization and conversion to one hot
+# Normalization and one hot conversion
 X_train = X_train_orig/255.
 X_test = X_test_orig/255.
 Y_train = convert_to_one_hot(Y_train_orig, 6).T
 Y_test = convert_to_one_hot(Y_test_orig, 6).T
 ```
 
-The package cnn_utils contains the functions such as load data and one hot conversion. The file cnn_utils.py must be included in the sample folder as this notebook.
+The package cnn_utils contains the functions such as load data and one hot conversion. 
 
 #### Upload data to the cloud
 Now we will make the data accessible remotely by uploading that data from local machine into Azure. Then it can be accessed for remote training. The datastore is a convenient construct associated with our workspace for us to upload or download data. We can also interact with it from your remote compute targets. It's backed by an Azure Blob storage account.
@@ -165,3 +165,15 @@ ds = ws.get_default_datastore()
 ds.upload(src_dir='./datasets', target_path='signs', overwrite=True, show_progress=True)
 ```
 
+## Train on a remote cluster
+#### Create a directory
+We create a directory to deliver the necessary code from local computer to the remote resource:
+
+```
+import os
+script_folder = './CNN-handsign'
+os.makedirs(script_folder, exist_ok=True)
+```
+
+#### Create a training script
+To submit the job to the cluster, we need to create a training script. The following code will create the training script called train.py in the directory we created.
