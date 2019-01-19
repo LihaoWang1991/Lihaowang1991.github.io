@@ -78,7 +78,53 @@ Then we can go back to Azure Notebook and create a workspace object from the exi
 ws = Workspace.from_config()
 print(ws.name, ws.location, ws.resource_group, sep = '\t')
 ```
+### Create an experiment
+Create an experiment to track the runs in the workspace. A workspace can have multiple experiments:
 
+```
+experiment_name = 'CNN-handsign'
+from azureml.core import Experiment
+exp = Experiment(workspace=ws, name=experiment_name)
+```
+
+### Create or attach an existing AMlCompute
+By using Azure Machine Learning Compute (AmlCompute), a managed service, we can train machine learning models on clusters of Azure virtual machines. Examples include VMs with GPU support. In this project, we create AmlCompute as our training environment. This code creates the compute clusters for us if they don't already exist in our workspace.
+Creation of the compute takes about five minutes. If the compute is already in the workspace, this code uses it and skips the creation process:
+
+```
+from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
+import os
+
+# choose a name for your cluster
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpucluster")
+compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
+compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
+
+# This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
+vm_size = os.environ.get("AML_COMPUTE_CLUSTER_SKU", "STANDARD_D2_V2")
+
+
+if compute_name in ws.compute_targets:
+    compute_target = ws.compute_targets[compute_name]
+    if compute_target and type(compute_target) is AmlCompute:
+        print('found compute target. just use it. ' + compute_name)
+else:
+    print('creating a new compute target...')
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size,
+                                                                min_nodes = compute_min_nodes, 
+                                                                max_nodes = compute_max_nodes)
+
+    # create the cluster
+    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
+
+    # can poll for a minimum number of nodes and for a specific timeout. 
+    # if no min node count is provided it will use the scale settings for the cluster
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+
+     # For a more detailed view of current AmlCompute status, use the 'status' property    
+    print(compute_target.status.serialize())
+```
 ## Set up the development environment
 
 
