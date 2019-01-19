@@ -61,7 +61,7 @@ from azureml.core import Workspace, Run
 ### Connect to a workspace
 Before this step, we need to put a file called **config.json** in the current folder as below.  
 
-!()[https://i.postimg.cc/vTgfpB7Y/post-azure4.png]
+![](https://i.postimg.cc/vTgfpB7Y/post-azure4.png)
 
 **Config.json** stores the necessary information that Azure notebbok needs to connect to the workspace that we have just created. In this project **config.json** contains only 3 lines.
 
