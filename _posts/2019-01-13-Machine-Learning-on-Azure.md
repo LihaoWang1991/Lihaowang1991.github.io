@@ -59,7 +59,19 @@ import azureml
 from azureml.core import Workspace, Run
 ```
 ### Connect to a workspace
-Create a workspace object from the existing workspace. Workspace.from_config() reads the file **config.json** and loads the details into an object named ws:
+Before this step, we need to put a file called **config.json** in the current folder as below.  
+
+!()[https://i.postimg.cc/vTgfpB7Y/post-azure4.png]
+
+**Config.json** stores the necessary information that Azure notebbok needs to connect to the workspace that we have just created. In this project **config.json** contains only 3 lines.
+
+```
+ "subscription_id": "65c2cf5a-b718-4bd4-9031-b7a2f2881ff0",
+ "resource_group": "docs-aml",
+ "workspace_name": "docs-ws"
+```
+
+Then we can go back to Azure Notebook and create a workspace object from the existing workspace. Workspace.from_config() reads the file **config.json** and loads the details into an object named ws:
 
 ```
 # load workspace configuration from the config.json file in the current folder.
