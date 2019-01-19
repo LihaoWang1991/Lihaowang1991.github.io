@@ -46,7 +46,7 @@ All the setup for the development work can be accomplished in a Python notebook.
 * **Create an experiment to track all your runs.**
 * **Create a remote compute target to use for training.**
 
-#### Import packages
+### Import packages
 Import Python packages we need in this session. 
 
 ```
@@ -58,7 +58,7 @@ import matplotlib.pyplot as plt
 import azureml
 from azureml.core import Workspace, Run
 ```
-#### Connect to a workspace
+### Connect to a workspace
 Before this step, we need to put a file called **config.json** in the current folder as below.  
 
 ![](https://i.postimg.cc/vTgfpB7Y/post-azure4.png)
