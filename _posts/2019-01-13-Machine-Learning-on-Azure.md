@@ -162,8 +162,6 @@ The SIGNS files are uploaded into a directory named signs at the root of the dat
 
 ```
 ds = ws.get_default_datastore()
-print(ds.datastore_type, ds.account_name, ds.container_name)
-
 ds.upload(src_dir='./datasets', target_path='signs', overwrite=True, show_progress=True)
 ```
 
