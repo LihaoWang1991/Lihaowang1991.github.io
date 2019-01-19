@@ -22,7 +22,7 @@ Like most machine learning platforms, the supported language on Azure Machine Le
 
 After learning the [official tutorials](https://docs.microsoft.com/en-us/azure/machine-learning/service/), I have deployed a little project I have done before on Azure Machine Leraning service. Here are some important notes I find during this project.
 
-## Creating an Azure Machine Learning Workspace
+## Creating an Azure machine learning workspace
 
 The project begins by creating an Azure Machine Learning Workspace. 
 
@@ -125,6 +125,23 @@ else:
      # For a more detailed view of current AmlCompute status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
-## Set up the development environment
 
+We now have the necessary packages and compute resources to train a model in the cloud.
+
+## Machine learning model and data preparation
+We use Convolutional Neural Network (CNN) momdel as the machine learning model in this project. CNN, or ConvNet is a class of deep neural networks, most commonly applied to analyzing visual imagery. In this session we will do some preapration work such as loading and transforming data.
+### TensorFlow model
+As usual, we will start by loading in the packages. The package cnn_utils contains the functions such as load data and one hot conversion. The file cnn_utils.py must be included in the sample folder as this notebook.
+
+```
+import math
+import numpy as np
+import h5py
+import scipy
+from PIL import Image
+from scipy import ndimage
+import tensorflow as tf
+from tensorflow.python.framework import ops
+from cnn_utils import *
+```
 
