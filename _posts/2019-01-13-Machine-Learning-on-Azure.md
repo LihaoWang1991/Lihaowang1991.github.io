@@ -130,8 +130,8 @@ We now have the necessary packages and compute resources to train a model in the
 
 ## Machine learning model and data preparation
 We use Convolutional Neural Network (CNN) momdel as the machine learning model in this project. CNN, or ConvNet is a class of deep neural networks, most commonly applied to analyzing visual imagery. In this session we will do some preapration work such as loading and transforming data.
-### TensorFlow model
-As usual, we will start by loading in the packages. The package cnn_utils contains the functions such as load data and one hot conversion. The file cnn_utils.py must be included in the sample folder as this notebook.
+#### Data preparation
+The following code load and normalize the data. 
 
 ```
 import math
@@ -143,5 +143,27 @@ from scipy import ndimage
 import tensorflow as tf
 from tensorflow.python.framework import ops
 from cnn_utils import *
+
+# Loading the data (signs)
+X_train_orig, Y_train_orig, X_test_orig, Y_test_orig, classes = load_dataset()
+
+# Normalization and conversion to one hot
+X_train = X_train_orig/255.
+X_test = X_test_orig/255.
+Y_train = convert_to_one_hot(Y_train_orig, 6).T
+Y_test = convert_to_one_hot(Y_test_orig, 6).T
+```
+
+The package cnn_utils contains the functions such as load data and one hot conversion. The file cnn_utils.py must be included in the sample folder as this notebook.
+
+#### Upload data to the cloud
+Now we will make the data accessible remotely by uploading that data from local machine into Azure. Then it can be accessed for remote training. The datastore is a convenient construct associated with our workspace for us to upload or download data. We can also interact with it from your remote compute targets. It's backed by an Azure Blob storage account.
+The SIGNS files are uploaded into a directory named signs at the root of the datastore.
+
+```
+ds = ws.get_default_datastore()
+print(ds.datastore_type, ds.account_name, ds.container_name)
+
+ds.upload(src_dir='./datasets', target_path='signs', overwrite=True, show_progress=True)
 ```
 
