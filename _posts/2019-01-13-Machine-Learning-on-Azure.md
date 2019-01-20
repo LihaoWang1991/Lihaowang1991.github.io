@@ -176,7 +176,7 @@ os.makedirs(script_folder, exist_ok=True)
 ```
 
 #### Create a training script
-To submit the job to the cluster, we need to create a training script. For the entire codes including tensorflow model functions please refer to my [Azure Notebook](https://handsignclassification-lihaowang.notebooks.azure.com/j/notebooks/Model/hand-sign-classification.ipynb#). I will only show the codes related to Azure machine learning model. 
+To submit the job to the cluster, we need to create a training script. For the entire codes including tensorflow model functions please refer to my [Azure Notebook](https://handsignclassification-lihaowang.notebooks.azure.com/j/notebooks/Model/hand-sign-classification.ipynb#). Here I will only show the codes related to Azure machine learning model. 
 
 The following script lets user feed in 1 parameter, the location of the data files (from datastore):
 ```
@@ -199,3 +199,51 @@ f = open('outputs/hand-sign-classification.pkl','wb')
 pickle.dump(final_param,f)
 f.close()
 ```
+
+Anything written in directory **outputs** is automatically uploaded into our workspace. We will access our model from this directory later in this project. The file cnn_utils.py is referenced from the training script to load the dataset correctly. Now we copy this script into the script folder, so that it can be accessed along with the training script on the remote resource.
+
+```
+import shutil
+shutil.copy('cnn_utils.py', script_folder)
+```
+
+#### Create an estimator
+
+An estimator object is used to submit the run. We create the estimator by running the following code.
+```
+from azureml.train.estimator import Estimator
+
+script_params = {
+    '--data-folder': ds.as_mount(),
+}
+
+est = Estimator(source_directory=script_folder,
+                script_params=script_params,
+                compute_target=compute_target,
+                entry_script='train.py',
+                conda_packages=['tensorflow','matplotlib'])
+```
+
+For detialed explanation please refer to my [Azure Notebook](https://handsignclassification-lihaowang.notebooks.azure.com/j/notebooks/Model/hand-sign-classification.ipynb#). 
+
+#### Submit the job to the cluster
+The following code will run the experiment by submitting the estimator object:
+```
+run = exp.submit(config=est)
+run
+```
+
+#### Monitor a remote run
+So the machine learning model is now running on Azure!
+In total, the first run takes about 15 minutes. But for subsequent runs, as long as the script dependencies don't change, the same image is reused. So the container startup time is much faster.
+We can check the progress of a running job using the following code:
+```
+from azureml.widgets import RunDetails
+RunDetails(run).show()
+```
+In Azure Notebook we can see the running progress every 10 to 15 seconds until the job finishes.
+<img src="https://i.postimg.cc/WzYQmkJ7/post-azure6.png" style="width:600px;">
+
+We now have a model trained on a remote cluster. We can the accuracy of the model:
+
+<img src="https://i.postimg.cc/wxrfVHGF/post-azure7.png" style="width:600px;">
