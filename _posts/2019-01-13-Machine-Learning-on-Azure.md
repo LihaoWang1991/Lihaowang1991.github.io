@@ -2,12 +2,13 @@
 layout:     post
 title:      Machine Learning on Azure
 subtitle:   
-date:       2019-01-13
+date:       2019-01-20
 author:     Lihao Wang
 header-img: img/post-bg-universe.jpg
 catalog: true
 tags:
     - Cloud Computing
+    - Machine Learning
 ---
 
 
@@ -39,7 +40,9 @@ In the created workspace, we can see its main functions such as Experiments, Pip
 <img src="https://i.postimg.cc/tCGxqT3P/post-azure3.png" style="width:600px;">
 
 ## Set up the development environment
-All the setup for the development work can be accomplished in a Python notebook. Setup includes the following actions:
+Now we will set up the development environment Azure Notebook. You can find all the files used in this project in my [Azure Notebook](https://notebooks.azure.com/lihaowang/projects/handsignclassification) and [this](https://handsignclassification-lihaowang.notebooks.azure.com/j/notebooks/Model/hand-sign-classification.ipynb) is a direct link to the related notebook page. 
+
+Setup includes the following actions:
 
 * **Import Python packages.** 
 * **Connect to a workspace, so that your local computer can communicate with remote resources.**
@@ -129,7 +132,11 @@ else:
 We now have the necessary packages and compute resources to train a model in the cloud.
 
 ## Machine learning model and data preparation
-We use Convolutional Neural Network (CNN) momdel as the machine learning model in this project. CNN, or ConvNet is a class of deep neural networks, most commonly applied to analyzing visual imagery. In this session we will do some preapration work such as loading and transforming data.
+In his project we will implement a ConvNet using TensorFlow to classify the hand sign images into 6 classes: numer 0 to number 5 (as the following picture). 
+
+<img src="https://i.postimg.cc/437QtzfP/SIGNS.png" style="width:800px;">
+
+[CNN](https://en.wikipedia.org/wiki/Convolutional_neural_network), or ConvNet is a class of deep neural networks, most commonly applied to analyzing visual imagery. In this session we will do some preapration work such as loading and transforming data.
 #### Data preparation
 The following code load and normalize the data. 
 
@@ -264,4 +271,6 @@ model = run.register_model(model_name='hand-sign-classification', model_path='ou
 And now if we go to the **Model** column of the Azure machine learning workspace, we will see the registered model:
 <img src="https://i.postimg.cc/x1jqsr7p/post-azure9.png" style="width:800px;">
 
-So finally we have successfully trained a hand signs classification model on Azure machine learning workspace! In my next blog I will introduce how to deploy the model as a web service in Azure.
+So finally we have successfully trained a hand signs classification model on Azure machine learning workspace! You can find all the codes and data used in this project in my [Azure Notebook](https://notebooks.azure.com/lihaowang/projects/handsignclassification). In my next blog I will introduce how to deploy the model as a web service in Azure.
+
+
