@@ -176,4 +176,26 @@ os.makedirs(script_folder, exist_ok=True)
 ```
 
 #### Create a training script
-To submit the job to the cluster, we need to create a training script. The following code will create the training script called train.py in the directory we created.
+To submit the job to the cluster, we need to create a training script. For the entire codes including tensorflow model functions please refer to my [Azure Notebook](https://handsignclassification-lihaowang.notebooks.azure.com/j/notebooks/Model/hand-sign-classification.ipynb#). I will only show the codes related to Azure machine learning model. 
+
+The following script lets user feed in 1 parameter, the location of the data files (from datastore):
+```
+parser = argparse.ArgumentParser()
+parser.add_argument('--data-folder', type=str, dest='data_folder', help='data folder mounting point')
+args = parser.parse_args()
+```
+
+The following script saves the training metrics to the run log:
+```
+run.log('train_accuracy', np.float(train_accuracy))
+run.log('test_accuracy', np.float(test_accuracy))
+```
+
+The following script saves our model into a directory named **outputs**: 
+```
+os.makedirs('outputs', exist_ok=True)
+# note file saved in the outputs folder is automatically uploaded into experiment record
+f = open('outputs/hand-sign-classification.pkl','wb')
+pickle.dump(final_param,f)
+f.close()
+```
