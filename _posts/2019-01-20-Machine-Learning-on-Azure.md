@@ -49,7 +49,7 @@ Setup includes the following actions:
 * **Create an experiment to track all your runs.**
 * **Create a remote compute target to use for training.**
 
-### Import packages
+#### Import packages
 Import Python packages we need in this session. 
 
 ```
@@ -61,7 +61,7 @@ import matplotlib.pyplot as plt
 import azureml
 from azureml.core import Workspace, Run
 ```
-### Connect to a workspace
+#### Connect to a workspace
 Before this step, we need to put a file called **config.json** in the current folder as below.  
 
 ![](https://i.postimg.cc/vTgfpB7Y/post-azure4.png)
@@ -81,7 +81,7 @@ Then we can go back to Azure Notebook and create a workspace object from the exi
 ws = Workspace.from_config()
 print(ws.name, ws.location, ws.resource_group, sep = '\t')
 ```
-### Create an experiment
+#### Create an experiment
 Create an experiment to track the runs in the workspace. A workspace can have multiple experiments:
 
 ```
@@ -90,7 +90,7 @@ from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### Create or attach an existing AMlCompute
+#### Create or attach an existing AMlCompute
 By using Azure Machine Learning Compute (AmlCompute), a managed service, we can train machine learning models on clusters of Azure virtual machines. Examples include VMs with GPU support. In this project, we create AmlCompute as our training environment. This code creates the compute clusters for us if they don't already exist in our workspace.
 Creation of the compute takes about five minutes. If the compute is already in the workspace, this code uses it and skips the creation process:
 
@@ -137,7 +137,7 @@ In his project we will implement a ConvNet using TensorFlow to classify the hand
 <img src="https://i.postimg.cc/437QtzfP/SIGNS.png" style="width:800px;">
 
 [CNN](https://en.wikipedia.org/wiki/Convolutional_neural_network), or ConvNet is a class of deep neural networks, most commonly applied to analyzing visual imagery. In this session we will do some preapration work such as loading and transforming data.
-### Data preparation
+#### Data preparation
 The following code load and normalize the data. 
 
 ```
@@ -163,7 +163,7 @@ Y_test = convert_to_one_hot(Y_test_orig, 6).T
 
 The package cnn_utils contains the functions such as load data and one hot conversion. 
 
-### Upload data to the cloud
+#### Upload data to the cloud
 Now we will make the data accessible remotely by uploading that data from local machine into Azure. Then it can be accessed for remote training. The datastore is a convenient construct associated with our workspace for us to upload or download data. We can also interact with it from your remote compute targets. It's backed by an Azure Blob storage account.
 The SIGNS files are uploaded into a directory named signs at the root of the datastore.
 
@@ -173,7 +173,7 @@ ds.upload(src_dir='./datasets', target_path='signs', overwrite=True, show_progre
 ```
 
 ## Train on a remote cluster
-### Create a directory
+#### Create a directory
 We create a directory to deliver the necessary code from local computer to the remote resource:
 
 ```
@@ -182,7 +182,7 @@ script_folder = './CNN-handsign'
 os.makedirs(script_folder, exist_ok=True)
 ```
 
-### Create a training script
+#### Create a training script
 To submit the job to the cluster, we need to create a training script. For the entire codes including tensorflow model functions please refer to my [Azure Notebook](https://handsignclassification-lihaowang.notebooks.azure.com/j/notebooks/Model/hand-sign-classification.ipynb). Here I will only show the codes related to Azure machine learning model. 
 
 The following script lets user feed in 1 parameter, the location of the data files (from datastore):
@@ -214,7 +214,7 @@ import shutil
 shutil.copy('cnn_utils.py', script_folder)
 ```
 
-### Create an estimator
+#### Create an estimator
 
 An estimator object is used to submit the run. We create the estimator by running the following code.
 ```
@@ -233,14 +233,14 @@ est = Estimator(source_directory=script_folder,
 
 For detialed explanation please refer to my [Azure Notebook](https://handsignclassification-lihaowang.notebooks.azure.com/j/notebooks/Model/hand-sign-classification.ipynb#). 
 
-### Submit the job to the cluster
+#### Submit the job to the cluster
 The following code will run the experiment by submitting the estimator object:
 ```
 run = exp.submit(config=est)
 run
 ```
 
-### Monitor a remote run
+#### Monitor a remote run
 So the machine learning model is now running on Azure!
 In total, the first run takes about 15 minutes. But for subsequent runs, as long as the script dependencies don't change, the same image is reused. So the container startup time is much faster.
 We can check the progress of a running job using the following code:
