@@ -30,7 +30,7 @@ The workspace is the top-level resource for Azure Machine Learning service. It p
 
 The workspace is created on [Azure Portal](portal.azure.com) as below:
 
-![](https://i.postimg.cc/wxtDfhnH/post-azure1.png)
+<img src="https://i.postimg.cc/wxtDfhnH/post-azure1.png" style="width:800px;">
 
 **Resource group** means the container that holds related resources for an Azure solution.The machine learning workspace must be allocated to one resource group.
 
