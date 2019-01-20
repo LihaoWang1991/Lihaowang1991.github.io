@@ -40,7 +40,7 @@ In the created workspace, we can see its main functions such as Experiments, Pip
 <img src="https://i.postimg.cc/tCGxqT3P/post-azure3.png" style="width:600px;">
 
 ## Set up the development environment
-Now we will set up the development environment Azure Notebook. You can find all the files used in this project in my [Azure Notebook](https://notebooks.azure.com/lihaowang/projects/handsignclassification) and [this](https://handsignclassification-lihaowang.notebooks.azure.com/j/notebooks/Model/hand-sign-classification.ipynb) is a direct link to the related notebook page. 
+Now we will set up the development environment Azure Notebook. You can find all the files used in this project in my [Azure Notebook](https://notebooks.azure.com/lihaowang/projects/handsignclassification) and [this](https://notebooks.azure.com/lihaowang/projects/handsignclassification/html/Model/hand-sign-classification.ipynb) is a direct link to the related notebook page. 
 
 Setup includes the following actions:
 
@@ -183,7 +183,7 @@ os.makedirs(script_folder, exist_ok=True)
 ```
 
 #### Create a training script
-To submit the job to the cluster, we need to create a training script. For the entire codes including tensorflow model functions please refer to my [Azure Notebook](https://handsignclassification-lihaowang.notebooks.azure.com/j/notebooks/Model/hand-sign-classification.ipynb). Here I will only show the codes related to Azure machine learning model. 
+To submit the job to the cluster, we need to create a training script. For the entire codes including tensorflow model functions please refer to my [Azure Notebook](https://notebooks.azure.com/lihaowang/projects/handsignclassification/html/Model/hand-sign-classification.ipynb). Here I will only show the codes related to Azure machine learning model. 
 
 The following script lets user feed in 1 parameter, the location of the data files (from datastore):
 ```
