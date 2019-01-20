@@ -21,7 +21,7 @@ Like Google Cloud in Google and AWS in Amazon, Azure is the cloud computing plat
 
 Like most machine learning platforms, the supported language on Azure Machine Learning service is Python. It fully supports open-source technologies. That means you can use open-source Python packages such as TensorFlow and scikit-learn. If you are familiar with coding using Jupyter Notebook, then Azure Machine Learning service can be a good choice to you because it has the same programming interface which is called [Azure Notebooks](https://notebooks.azure.com/). Nevertheless, you can also code on your local Python IDE but you need to install [Azure Python SDK](https://docs.microsoft.com/zh-cn/python/api/overview/azure/ml/intro?view=azure-ml-py) packages at first. 
 
-After learning the [official tutorials](https://docs.microsoft.com/en-us/azure/machine-learning/service/), I have deployed a little project I have done before on Azure Machine Leraning service. Here are some important notes I find during this project.
+After learning the [official tutorials](https://docs.microsoft.com/en-us/azure/machine-learning/service/), I have migrated a previous project on Azure Machine Leraning service. I will show you this project step by step.
 
 ## Creating an Azure machine learning workspace
 
@@ -132,7 +132,7 @@ else:
 We now have the necessary packages and compute resources to train a model in the cloud.
 
 ## Machine learning model and data preparation
-In his project we will implement a ConvNet using TensorFlow to classify the hand sign images into 6 classes: numer 0 to number 5 (as the following picture). 
+In his project we will implement a ConvNet using TensorFlow to classify the hand sign images into 6 classes: numer 0 to number 5. This was one of the programming assignments I have completed in Andrw Ng's course [Deep Learning](https://www.coursera.org/specializations/deep-learning).  
 
 <img src="https://i.postimg.cc/437QtzfP/SIGNS.png" style="width:800px;">
 
