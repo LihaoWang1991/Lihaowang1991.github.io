@@ -242,8 +242,26 @@ from azureml.widgets import RunDetails
 RunDetails(run).show()
 ```
 In Azure Notebook we can see the running progress every 10 to 15 seconds until the job finishes.
-<img src="https://i.postimg.cc/WzYQmkJ7/post-azure6.png" style="width:600px;">
+<img src="https://i.postimg.cc/WzYQmkJ7/post-azure6.png" style="width:800px;">
 
-We now have a model trained on a remote cluster. We can the accuracy of the model:
+We now have a model trained on a remote cluster. We can print the accuracy of the model:
 
 <img src="https://i.postimg.cc/wxrfVHGF/post-azure7.png" style="width:600px;">
+
+Maybe you find the training and test accuracy is not very high. This is because due to limited computing resource I have applied on Azure, I have not trained the model for too many epochs.
+
+And in Azure Portal, we can see the experiment running history as following:
+
+<img src="https://i.postimg.cc/zGNGym8X/post-azure8.png" style="width:600px;">
+
+## Register model
+Now we register the model in the workspace, so that we or other collaborators can later query, examine, and deploy this model:
+```
+# register model 
+model = run.register_model(model_name='hand-sign-classification', model_path='outputs/hand-sign-classification.pkl')
+```
+
+And now if we go to the **Model** column of the Azure machine learning workspace, we will see the registered model:
+<img src="https://i.postimg.cc/x1jqsr7p/post-azure9.png" style="width:800px;">
+
+So finally we have successfully trained a hand signs classification model on Azure machine learning workspace! In my next blog I will introduce how to deploy the model as a web service in Azure.
