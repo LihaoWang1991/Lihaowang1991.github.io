@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Machine Learning on Azure (1)
+title:      Machine Learning on Azure
 subtitle:   Trian a model
 date:       2019-01-20
 author:     Lihao Wang
