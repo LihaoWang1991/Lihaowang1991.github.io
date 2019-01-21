@@ -66,7 +66,7 @@ Before this step, we need to put a file called **config.json** in the current fo
 
 ![](https://i.postimg.cc/vTgfpB7Y/post-azure4.png)
 
-**Config.json** stores the necessary information that Azure notebbok needs to connect to the workspace that we have just created. In this project **config.json** contains only 3 lines.
+**Config.json** stores the necessary information that Azure notebook needs to connect to the workspace that we have just created. In this project **config.json** contains only 3 lines.
 
 ```
  "subscription_id": "65c2cf5a-b718-4bd4-9031-b7a2f2881ff0",
@@ -74,7 +74,7 @@ Before this step, we need to put a file called **config.json** in the current fo
  "workspace_name": "docs-ws"
 ```
 
-Then we can go back to Azure Notebook and create a workspace object from the existing workspace. Workspace.from_config() reads the file **config.json** and loads the details into an object named ws:
+Then we can go back to Azure Notebook and create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **config.json** and loads the details into an object named ws:
 
 ```
 # load workspace configuration from the config.json file in the current folder.
@@ -132,11 +132,11 @@ else:
 We now have the necessary packages and compute resources to train a model in the cloud.
 
 ## Machine learning model and data preparation
-In his project we will implement a ConvNet using TensorFlow to classify the hand sign images into 6 classes: numer 0 to number 5. This was one of the programming assignments I have completed in Andrw Ng's course [Deep Learning](https://www.coursera.org/specializations/deep-learning).  
+In his project we will implement a ConvNet using TensorFlow to classify the hand sign images into 6 classes: number 0 to number 5. This was one of the programming assignments I have completed in Andrew Ng's course [Deep Learning](https://www.coursera.org/specializations/deep-learning).  
 
 <img src="https://i.postimg.cc/437QtzfP/SIGNS.png" style="width:800px;">
 
-[CNN](https://en.wikipedia.org/wiki/Convolutional_neural_network), or ConvNet is a class of deep neural networks, most commonly applied to analyzing visual imagery. In this session we will do some preapration work such as loading and transforming data.
+[CNN](https://en.wikipedia.org/wiki/Convolutional_neural_network), or ConvNet is a class of deep neural networks, most commonly applied to analyzing visual imagery. In this session we will do some preparation work such as loading and transforming data.
 #### Data preparation
 The following code load and normalize the data. 
 
@@ -231,7 +231,7 @@ est = Estimator(source_directory=script_folder,
                 conda_packages=['tensorflow','matplotlib'])
 ```
 
-For detialed explanation please refer to my [Azure Notebook](https://handsignclassification-lihaowang.notebooks.azure.com/j/notebooks/Model/hand-sign-classification.ipynb#). 
+For detailed explanation please refer to my [Azure Notebook](https://handsignclassification-lihaowang.notebooks.azure.com/j/notebooks/Model/hand-sign-classification.ipynb#). 
 
 #### Submit the job to the cluster
 The following code will run the experiment by submitting the estimator object:
