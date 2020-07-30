@@ -1,3 +1,4 @@
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 ---
 layout:     post
 title:      How gradients are back propagated in NN
@@ -9,7 +10,7 @@ tags:
     - Machine Learning
 ---
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 
 In modern DL frameworks like Tensorflow and Pytorch, the backpropagation is computed automatically once the forward propagation is build. Nevertheless, it's always a good thing to understand how the gradients are "propagated" layer by layer during backpropagation.
 
