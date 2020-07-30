@@ -23,4 +23,5 @@ I have taken a 2-layer NN as a simple example to show how the formula is derived
 
 
 
-![](http://latex.codecogs.com/gif.latex?\\sigma=\sqrt{\frac{1}{n}{\sum_{k=1}^n(x_i-\bar{x})^2}})
+
+![](https://latex.codecogs.com/svg.latex?\inline&space;\LARGE&space;\sigma=\sqrt{\frac{1}{n}{\sum_{k=1}^n(x_i-\bar{x})^2}})
