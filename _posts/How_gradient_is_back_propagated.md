@@ -16,4 +16,4 @@ In modern DL frameworks like Tensorflow and Pytorch, the backpropagation is comp
 
 I have taken a 2-layer NN as a simple example to show how the formula is derived.
 
-<img src="https://i.postimg.cc/Xv10F1Tb/Deepin-Capture-cran-zone-de-s-lection-20200730120631.png" style="width:800px;">
+<img src="https://i.postimg.cc/Xv10F1Tb/Deepin-Capture-cran-zone-de-s-lection-20200730120631.png" style="width:400px;">
