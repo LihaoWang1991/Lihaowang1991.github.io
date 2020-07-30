@@ -17,7 +17,7 @@ I have taken a 2-layer NN as a simple example to show how the formula is derived
 
 <img src="https://i.postimg.cc/Xv10F1Tb/Deepin-Capture-cran-zone-de-s-lection-20200730120631.png" style="width:400px;">
 
-![](https://latex.codecogs.com/gif.latex?\dpi{300}&space;\begin{bmatrix}&space;a_{1}^{[2](1)}&space;&&space;a_{1}^{[2](2)}&space;&&space;...&space;&&space;a_{1}^{[2](m)}\\&space;a_{2}^{[2](1)}&space;&&space;a_{2}^{[2](2)}&space;&&space;...&space;&&space;a_{2}^{[2](m)}&space;\\&space;a_{3}^{[2](1)}&space;&&space;a_{3}^{[2](2)}&space;&&space;...&space;&&space;a_{3}^{[2](m)}&space;\end{bmatrix})
+![](https://latex.codecogs.com/png.latex?\begin{bmatrix}&space;a_{1}^{[2](1)}&space;&&space;a_{1}^{[2](2)}&space;&&space;...&space;&&space;a_{1}^{[2](m)}\\&space;a_{2}^{[2](1)}&space;&&space;a_{2}^{[2](2)}&space;&&space;...&space;&&space;a_{2}^{[2](m)}&space;\\&space;a_{3}^{[2](1)}&space;&&space;a_{3}^{[2](2)}&space;&&space;...&space;&&space;a_{3}^{[2](m)}&space;\end{bmatrix})
 
 
 
