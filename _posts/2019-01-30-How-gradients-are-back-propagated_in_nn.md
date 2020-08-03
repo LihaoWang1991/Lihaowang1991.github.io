@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      How gradients are back propagated in NN
-date:       2020-07-30
+date:       2019-01-30
 author:     Lihao Wang
 header-img: img/post-bg-universe.jpg
 catalog: true
