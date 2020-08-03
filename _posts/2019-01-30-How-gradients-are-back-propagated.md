@@ -17,10 +17,10 @@ I have taken a 2-layer NN as a simple example to show how the formula is derived
 
 <img src="https://i.postimg.cc/Xv10F1Tb/Deepin-Capture-cran-zone-de-s-lection-20200730120631.png" style="width:400px;">
 
-As NN convention, the superscript of each variable represents its layer order and sample order and the subscript repsents its node order. For example, the second node in layer 1 (hidden layer) of sample 3 is noted as <img src="https://latex.codecogs.com/gif.latex?a_{2}^{[1](3)}" title="a_{2}^{[1](3)}" />.  Let's take *m* as the total number of samples. 
+As NN convention, the superscript of each variable represents its layer order and sample order and the subscript repsents its node order. For example, the second node in layer 1 (hidden layer) of sample 3 is noted as ![](https://latex.codecogs.com/gif.latex?a_{2}^{[1](3)}).  Let's take *m* as the total number of samples. 
 
 
-
+$x^p_ {ij}$
 
 
 ![](https://latex.codecogs.com/gif.latex?%5Cinline%20%5CLARGE%20%5Cbegin%7Bbmatrix%7D%20a_%7B1%7D%5E%7B%5B2%5D%281%29%7D%20%26%20a_%7B1%7D%5E%7B%5B2%5D%282%29%7D%20%26%20...%20%26%20a_%7B1%7D%5E%7B%5B2%5D%28m%29%7D%5C%5C%20%26%20%26%20%26%20%5C%5C%20a_%7B2%7D%5E%7B%5B2%5D%281%29%7D%20%26%20a_%7B2%7D%5E%7B%5B2%5D%282%29%7D%20%26%20...%20%26%20a_%7B2%7D%5E%7B%5B2%5D%28m%29%7D%20%5C%5C%20%26%20%26%20%26%20%5C%5C%20a_%7B3%7D%5E%7B%5B2%5D%281%29%7D%20%26%20a_%7B3%7D%5E%7B%5B2%5D%282%29%7D%20%26%20...%20%26%20a_%7B3%7D%5E%7B%5B2%5D%28m%29%7D%20%5Cend%7Bbmatrix%7D)
