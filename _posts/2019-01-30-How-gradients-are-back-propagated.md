@@ -24,6 +24,8 @@ So the NN vectorized output matrix A<sup>\[2]</sup> is as following:
 
 ![](https://latex.codecogs.com/svg.latex?%5Clarge%20%5Cwidehat%7BY%7D%20%3D%20A%5E%7B%5B2%5D%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%20a_%7B1%7D%5E%7B%5B2%5D%281%29%7D%20%26%20a_%7B1%7D%5E%7B%5B2%5D%282%29%7D%20%26%20...%20%26%20a_%7B1%7D%5E%7B%5B2%5D%28m%29%7D%5C%5C%20%26%20%26%20%26%20%5C%5C%20a_%7B2%7D%5E%7B%5B2%5D%281%29%7D%20%26%20a_%7B2%7D%5E%7B%5B2%5D%282%29%7D%20%26%20...%20%26%20a_%7B2%7D%5E%7B%5B2%5D%28m%29%7D%20%5C%5C%20%26%20%26%20%26%20%5C%5C%20a_%7B3%7D%5E%7B%5B2%5D%281%29%7D%20%26%20a_%7B3%7D%5E%7B%5B2%5D%282%29%7D%20%26%20...%20%26%20a_%7B3%7D%5E%7B%5B2%5D%28m%29%7D%20%5Cend%7Bbmatrix%7D)
 
+We can see that each *a* depeds only on its *z* before activation function, so we can simply propagate the gradient by a element-wise production:
+
 
 And we define the loss function as: 
 
@@ -33,18 +35,18 @@ First of all, let's figure out that of the latest group of variables: A<sup>\[2]
 
 Then for Z<sup>\[2]</sup>, I put the forward propagaton from Z<sup>\[2]</sup> to A<sup>\[2]</sup> here:
 
-![](https://latex.codecogs.com/svg.latex?%5Clarge%20A%5E%7B%5B2%5D%7D%20%3Dg%5E%7B%5B2%5D%7D%28Z%5E%7B%5B2%5D%7D%29%20%3D%20%5Cbegin%7Bbmatrix%7D%20g%5E%7B%5B2%5D%7D%28a_%7B1%7D%5E%7B%5B2%5D%281%29%7D%29%20%26%20g%5E%7B%5B2%5D%7D%28a_%7B1%7D%5E%7B%5B2%5D%282%29%7D%29%20%26%20...%20%26%20g%5E%7B%5B2%5D%7D%28a_%7B1%7D%5E%7B%5B2%5D%28m%29%7D%29%5C%5C%20%26%20%26%20%26%20%5C%5C%20g%5E%7B%5B2%5D%7D%28a_%7B2%7D%5E%7B%5B2%5D%281%29%7D%29%20%26%20g%5E%7B%5B2%5D%7D%28a_%7B2%7D%5E%7B%5B2%5D%282%29%7D%29%20%26%20...%20%26%20g%5E%7B%5B2%5D%7D%28a_%7B2%7D%5E%7B%5B2%5D%28m%29%7D%29%20%5C%5C%20%26%20%26%20%26%20%5C%5C%20g%5E%7B%5B2%5D%7D%28a_%7B3%7D%5E%7B%5B2%5D%281%29%7D%29%20%26%20g%5E%7B%5B2%5D%7D%28a_%7B3%7D%5E%7B%5B2%5D%282%29%7D%29%20%26%20...%20%26%20g%5E%7B%5B2%5D%7D%28a_%7B3%7D%5E%7B%5B2%5D%28m%29%7D%29%20%5Cend%7Bbmatrix%7D)
+![](https://latex.codecogs.com/svg.latex?%5Clarge%20A%5E%7B%5B2%5D%7D%20%3Dg%5E%7B%5B2%5D%7D%28Z%5E%7B%5B2%5D%7D%29%20%3D%20%5Cbegin%7Bbmatrix%7D%20g%5E%7B%5B2%5D%7D%28z_%7B1%7D%5E%7B%5B2%5D%281%29%7D%29%20%26%20g%5E%7B%5B2%5D%7D%28z_%7B1%7D%5E%7B%5B2%5D%282%29%7D%29%20%26%20...%20%26%20g%5E%7B%5B2%5D%7D%28z_%7B1%7D%5E%7B%5B2%5D%28m%29%7D%29%5C%5C%20%26%20%26%20%26%20%5C%5C%20g%5E%7B%5B2%5D%7D%28z_%7B2%7D%5E%7B%5B2%5D%281%29%7D%29%20%26%20g%5E%7B%5B2%5D%7D%28z_%7B2%7D%5E%7B%5B2%5D%282%29%7D%29%20%26%20...%20%26%20g%5E%7B%5B2%5D%7D%28z_%7B2%7D%5E%7B%5B2%5D%28m%29%7D%29%20%5C%5C%20%26%20%26%20%26%20%5C%5C%20g%5E%7B%5B2%5D%7D%28z_%7B3%7D%5E%7B%5B2%5D%281%29%7D%29%20%26%20g%5E%7B%5B2%5D%7D%28z_%7B3%7D%5E%7B%5B2%5D%282%29%7D%29%20%26%20...%20%26%20g%5E%7B%5B2%5D%7D%28z_%7B3%7D%5E%7B%5B2%5D%28m%29%7D%29%20%5Cend%7Bbmatrix%7D)
 
 
 
 <!--
-(comments) formula: 
+(comments) formula template: 
 A^{[2]} =g^{[2]}(Z^{[2]}) = \begin{bmatrix}
-g^{[2]}(a_{1}^{[2](1)}) & g^{[2]}(a_{1}^{[2](2)}) & ... & g^{[2]}(a_{1}^{[2](m)})\\ 
+g^{[2]}(z_{1}^{[2](1)}) & g^{[2]}(z_{1}^{[2](2)}) & ... & g^{[2]}(z_{1}^{[2](m)})\\ 
 &  &  & \\ 
-g^{[2]}(a_{2}^{[2](1)}) & g^{[2]}(a_{2}^{[2](2)}) & ... & g^{[2]}(a_{2}^{[2](m)}) \\ 
+g^{[2]}(z_{2}^{[2](1)}) & g^{[2]}(z_{2}^{[2](2)}) & ... & g^{[2]}(z_{2}^{[2](m)}) \\ 
  &  &  & \\ 
-g^{[2]}(a_{3}^{[2](1)}) & g^{[2]}(a_{3}^{[2](2)}) & ... & g^{[2]}(a_{3}^{[2](m)}) 
+g^{[2]}(z_{3}^{[2](1)}) & g^{[2]}(z_{3}^{[2](2)}) & ... & g^{[2]}(z_{3}^{[2](m)}) 
 \end{bmatrix}
 
 12pts, format svg
