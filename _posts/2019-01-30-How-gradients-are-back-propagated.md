@@ -17,7 +17,7 @@ I have taken a 2-layer NN as a simple example to show how the formula is derived
 
 <img src="https://i.postimg.cc/Xv10F1Tb/Deepin-Capture-cran-zone-de-s-lection-20200730120631.png" style="width:400px;">
 
-As NN convention, the superscript of each variable represents its layer number and the subscript repsents its node order. For example, the second node in layer 1 (hidden layer) is noted as ![](https://latex.codecogs.com/gif.latex?a_{2}^{[1]}).  Let's take *m* as the number of samples. 
+As NN convention, the superscript of each variable represents its layer order and sample order and the subscript repsents its node order. For example, the second node in layer 1 (hidden layer) of sample 3 is noted as ![](https://latex.codecogs.com/gif.latex?a_{2}^{[1](3)}).  Let's take *m* as the number of samples. 
 
 The loss funciton is defined as: 
 
