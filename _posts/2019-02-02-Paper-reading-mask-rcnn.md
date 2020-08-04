@@ -1,6 +1,7 @@
 ---
 layout:     post
 title:      Paper reading: Mask R-CNN
+subtitle:   Train a mode
 date:       2019-02-02
 author:     Lihao Wang
 header-img: img/post-bg-universe.jpg
