@@ -1,13 +1,12 @@
 ---
 layout:     post
-title:      Machine Learning on Azure
-subtitle:   Train a model
-date:       2019-01-20
+title:      Paper reading: Mask R-CNN
+date:       2019-02-02
 author:     Lihao Wang
 header-img: img/post-bg-universe.jpg
 catalog: true
 tags:
-    - Cloud Computing
+    - Computer Vision
     - Machine Learning
 ---
 
