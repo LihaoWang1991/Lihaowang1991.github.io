@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Paper reading
+title:      Simple Understanding of Mask RCNN
 date:       2019-02-02
 author:     Lihao Wang
 header-img: img/post-bg-universe.jpg
