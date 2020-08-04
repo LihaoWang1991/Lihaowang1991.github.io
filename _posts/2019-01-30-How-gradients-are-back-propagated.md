@@ -39,7 +39,7 @@ Then for Z<sup>\[2]</sup>, I put here the forward propagation from Z<sup>\[2]</s
 
 We find that each *a* depends only on its corresponding *z* before activation function, so we can simply back propagate the gradient by an element-wise production:
 
-![](https://latex.codecogs.com/svg.latex?dZ%5E%7B%5B2%5D%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%20da_%7B1%7D%5E%7B%5B2%5D%281%29%7D%5Ccdot%20%7Bg%5E%7B%5B2%5D%7D%7D%27%28z_%7B1%7D%5E%7B%5B2%5D%281%29%7D%29%20%26%20da_%7B1%7D%5E%7B%5B2%5D%282%29%7D%5Ccdot%20%7Bg%5E%7B%5B2%5D%7D%7D%27%28z_%7B1%7D%5E%7B%5B2%5D%282%29%7D%29%20%26%20...%20%26%20da_%7B1%7D%5E%7B%5B2%5D%28m%29%7D%5Ccdot%20%7Bg%5E%7B%5B2%5D%7D%7D%27%28z_%7B1%7D%5E%7B%5B2%5D%28m%29%7D%29%5C%5C%20%26%20%26%20%26%20%5C%5C%20da_%7B2%7D%5E%7B%5B2%5D%281%29%7D%5Ccdot%20%7Bg%5E%7B%5B2%5D%7D%7D%27%28z_%7B2%7D%5E%7B%5B2%5D%281%29%7D%29%20%26%20da_%7B2%7D%5E%7B%5B2%5D%282%29%7D%5Ccdot%20%7Bg%5E%7B%5B2%5D%7D%7D%27%28z_%7B2%7D%5E%7B%5B2%5D%282%29%7D%29%20%26%20...%20%26%20da_%7B2%7D%5E%7B%5B2%5D%28m%29%7D%5Ccdot%20%7Bg%5E%7B%5B2%5D%7D%7D%27%28z_%7B2%7D%5E%7B%5B2%5D%28m%29%7D%29%20%5C%5C%20%26%20%26%20%26%20%5C%5C%20da_%7B3%7D%5E%7B%5B2%5D%281%29%7D%5Ccdot%20%7Bg%5E%7B%5B2%5D%7D%7D%27%28z_%7B3%7D%5E%7B%5B2%5D%281%29%7D%29%20%26%20da_%7B3%7D%5E%7B%5B2%5D%282%29%7D%5Ccdot%20%7Bg%5E%7B%5B2%5D%7D%7D%27%28z_%7B3%7D%5E%7B%5B2%5D%282%29%7D%29%20%26%20...%20%26%20da_%7B3%7D%5E%7B%5B2%5D%28m%29%7D%5Ccdot%20%7Bg%5E%7B%5B2%5D%7D%7D%27%28z_%7B3%7D%5E%7B%5B2%5D%28m%29%7D%29%20%5Cend%7Bbmatrix%7D%20%3D%20dA%5E%7B%5B2%5D%7D%5C%3A*%20%5C%3A%7Bg%5E%7B%5B2%5D%7D%7D%27%28Z%5E%7B%5B2%5D%7D%29)
+![](https://latex.codecogs.com/svg.latex?dZ%5E%7B%5B2%5D%7D%20%3D%20dA%5E%7B%5B2%5D%7D%5C%3B*%5C%3B%7Bg%5E%7B%5B2%5D%7D%7D%27%28Z%5E%7B%5B2%5D%7D%29%20%3D%20%5Cbegin%7Bbmatrix%7D%20da_%7B1%7D%5E%7B%5B2%5D%281%29%7D%5Ccdot%20%7Bg%5E%7B%5B2%5D%7D%7D%27%28z_%7B1%7D%5E%7B%5B2%5D%281%29%7D%29%20%26%20da_%7B1%7D%5E%7B%5B2%5D%282%29%7D%5Ccdot%20%7Bg%5E%7B%5B2%5D%7D%7D%27%28z_%7B1%7D%5E%7B%5B2%5D%282%29%7D%29%20%26%20...%20%26%20da_%7B1%7D%5E%7B%5B2%5D%28m%29%7D%5Ccdot%20%7Bg%5E%7B%5B2%5D%7D%7D%27%28z_%7B1%7D%5E%7B%5B2%5D%28m%29%7D%29%5C%5C%20%26%20%26%20%26%20%5C%5C%20da_%7B2%7D%5E%7B%5B2%5D%281%29%7D%5Ccdot%20%7Bg%5E%7B%5B2%5D%7D%7D%27%28z_%7B2%7D%5E%7B%5B2%5D%281%29%7D%29%20%26%20da_%7B2%7D%5E%7B%5B2%5D%282%29%7D%5Ccdot%20%7Bg%5E%7B%5B2%5D%7D%7D%27%28z_%7B2%7D%5E%7B%5B2%5D%282%29%7D%29%20%26%20...%20%26%20da_%7B2%7D%5E%7B%5B2%5D%28m%29%7D%5Ccdot%20%7Bg%5E%7B%5B2%5D%7D%7D%27%28z_%7B2%7D%5E%7B%5B2%5D%28m%29%7D%29%20%5C%5C%20%26%20%26%20%26%20%5C%5C%20da_%7B3%7D%5E%7B%5B2%5D%281%29%7D%5Ccdot%20%7Bg%5E%7B%5B2%5D%7D%7D%27%28z_%7B3%7D%5E%7B%5B2%5D%281%29%7D%29%20%26%20da_%7B3%7D%5E%7B%5B2%5D%282%29%7D%5Ccdot%20%7Bg%5E%7B%5B2%5D%7D%7D%27%28z_%7B3%7D%5E%7B%5B2%5D%282%29%7D%29%20%26%20...%20%26%20da_%7B3%7D%5E%7B%5B2%5D%28m%29%7D%5Ccdot%20%7Bg%5E%7B%5B2%5D%7D%7D%27%28z_%7B3%7D%5E%7B%5B2%5D%28m%29%7D%29%20%5Cend%7Bbmatrix%7D)
 
 
 
@@ -76,15 +76,18 @@ da_{3}^{[2](1)}\ & da_{3}^{[2](2)} & ... & da_{3}^{[2](m)}\\
 \frac{dL(a_{3}^{[2](1)}, y_{3}^{(1)})}{da_{3}^{[2](1)}}\  & \frac{dL(a_{3}^{[2](2)}, y_{3}^{(2)})}{da_{3}^{[2](2)}} & ... & \frac{dL(a_{3}^{[2](m)}, y_{3}^{(m)})}{da_{3}^{[2](m)}}\\
 \end{bmatrix}
 
-dZ[2]:
-dZ^{[2]} = \begin{bmatrix}
+dZ[2] (size 10pts):
+dZ^{[2]} 
+=
+dA^{[2]}\;*\;{g^{[2]}}'(Z^{[2]})
+=
+\begin{bmatrix}
 da_{1}^{[2](1)}\cdot {g^{[2]}}'(z_{1}^{[2](1)}) & da_{1}^{[2](2)}\cdot {g^{[2]}}'(z_{1}^{[2](2)}) & ... & da_{1}^{[2](m)}\cdot {g^{[2]}}'(z_{1}^{[2](m)})\\ 
 &  &  & \\ 
 da_{2}^{[2](1)}\cdot {g^{[2]}}'(z_{2}^{[2](1)}) & da_{2}^{[2](2)}\cdot {g^{[2]}}'(z_{2}^{[2](2)}) & ... & da_{2}^{[2](m)}\cdot {g^{[2]}}'(z_{2}^{[2](m)}) \\ 
  &  &  & \\ 
 da_{3}^{[2](1)}\cdot {g^{[2]}}'(z_{3}^{[2](1)}) & da_{3}^{[2](2)}\cdot {g^{[2]}}'(z_{3}^{[2](2)}) & ... & da_{3}^{[2](m)}\cdot {g^{[2]}}'(z_{3}^{[2](m)}) 
 \end{bmatrix}
-= dA^{[2]}\:* \:{g^{[2]}}'(Z^{[2]})
 
 Size and format:
 12pts, format svg
