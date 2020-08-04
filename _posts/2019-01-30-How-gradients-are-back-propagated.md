@@ -44,7 +44,7 @@ We find that each *a<sub>i</sub><sup>\[2]\(j)</sup>* depends only on its corresp
 To get dW<sup>\[2]</sup>, we also need to write at first its related forward propagation equation:
 
 
-<img src="https://i.postimg.cc/9XRFYRZb/image.jpg" style="width:600px;">
+<img src="https://i.postimg.cc/9XRFYRZb/image.jpg" style="width:800px;">
 
 
 
