@@ -46,11 +46,25 @@ To get dW<sup>\[2]</sup>, we also need to write at first its related forward pro
 
 <img src="https://i.postimg.cc/9XRFYRZb/image.jpg" style="width:800px;">
 
+Each element in dW<sup>\[2]</sup> impacts the final result J by impacting the elements in dZ<sup>\[2]</sup>. Taking the first element w<sub>11</sub><sup>\[2]</sup> as example, we write here all its related elements in dZ<sup>\[2]</sup>:
+
+
+Vectrorize it and we have:
+
+![](https://latex.codecogs.com/svg.latex?dW%5E%7B%5B2%5D%7D%20%3D%20%5Cfrac%7B1%7D%7Bm%7DdZ%5E%7B%5B2%5D%7DdA%5E%7B%5B1%5DT%7D)
+
+
+In fact, more generally, for matrix A, B, C which satisfy C = A · B, for a scalar value J which is function of C, then we have:
+
+![](https://latex.codecogs.com/svg.latex?%5Cfrac%7B%5Cpartial%20J%7D%7B%5Cpartial%20A%7D%3D%5Cfrac%7B%5Cpartial%20J%7D%7B%5Cpartial%20C%7D%20%5Ccdot%20%5Cfrac%7B%5Cpartial%20C%7D%7B%5Cpartial%20A%7D%3D%5Cfrac%7B%5Cpartial%20J%7D%7B%5Cpartial%20C%7D%5Ccdot%20B%5E%7BT%7D)
+
 
 
 <!--
 (comments) formulas: 
+
 A[2] forward propagation:
+
 A^{[2]} =g^{[2]}(Z^{[2]}) = \begin{bmatrix}
 g^{[2]}(z_{1}^{[2](1)}) & g^{[2]}(z_{1}^{[2](2)}) & ... & g^{[2]}(z_{1}^{[2](m)})\\ 
 &  &  & \\ 
@@ -63,6 +77,7 @@ total loss function:
 J = \frac{1}{m}\ \sum_{i=1}^{m}\sum_{j=1}^{n}L(a_{j}^{[2](i)}, y_{j}^{(i)})
 
 dA[2] (size 10pts):
+
 dA^{[2]} = \frac{dJ}{dA^{[2]}} = 
 \begin{bmatrix}
 da_{1}^{[2](1)}\ & da_{1}^{[2](2)} & ... & da_{1}^{[2](m)}\\ 
@@ -81,6 +96,7 @@ da_{3}^{[2](1)}\ & da_{3}^{[2](2)} & ... & da_{3}^{[2](m)}\\
 \end{bmatrix}
 
 dZ[2] (size 10pts):
+
 dZ^{[2]} 
 =
 dA^{[2]}\;*\;{g^{[2]}}'(Z^{[2]})
@@ -92,6 +108,40 @@ da_{2}^{[2](1)}\cdot {g^{[2]}}'(z_{2}^{[2](1)}) & da_{2}^{[2](2)}\cdot {g^{[2]}}
  &  &  & \\ 
 da_{3}^{[2](1)}\cdot {g^{[2]}}'(z_{3}^{[2](1)}) & da_{3}^{[2](2)}\cdot {g^{[2]}}'(z_{3}^{[2](2)}) & ... & da_{3}^{[2](m)}\cdot {g^{[2]}}'(z_{3}^{[2](m)}) 
 \end{bmatrix}
+
+Z[2] forward propagation:
+
+Z^{[2]} = W^{[2]}\cdot A^{[1]}+b^{[2]}
+=
+\begin{bmatrix}
+w_{11}^{[2]} & w_{12}^{[2]} & w_{13}^{[2]} & w_{14}^{[2]}\\ 
+&  &  & \\ 
+w_{21}^{[2]} & w_{22}^{[2]} & w_{23}^{[2]} & w_{24}^{[2]} \\ 
+ &  &  & \\ 
+w_{31}^{[2]} & w_{32}^{[2]} & w_{33}^{[2]} & w_{34}^{[2]} 
+\end{bmatrix}
+\cdot 
+\begin{bmatrix}
+a_{1}^{[1](1)} & a_{1}^{[1](2)} & ... & a_{1}^{[1](m)}\\ 
+&  &  & \\ 
+a_{2}^{[1](1)} & a_{2}^{[1](2)} & ... & a_{2}^{[1](m)} \\ 
+ &  &  & \\ 
+a_{3}^{[1](1)} & a_{3}^{[1](2)} & ... & a_{3}^{[1](m)} \\
+ &  &  & \\ 
+a_{4}^{[1](1)} & a_{4}^{[1](2)} & ... & a_{4}^{[1](m)} 
+\end{bmatrix}
++
+\begin{bmatrix}
+b_{1}^{[1]} & b_{1}^{[1]} & ... & b_{1}^{[1]}\\ 
+&  &  & \\ 
+b_{2}^{[1]} & b_{2}^{[1]} & ... & b_{2}^{[1]} \\ {\color{Green} }
+ &  &  & \\ 
+b_{3}^{[1]} & b_{3}^{[1]} & ... & b_{3}^{[1]} 
+\end{bmatrix}
+
+
+General case:
+\frac{\partial J}{\partial A}=\frac{\partial J}{\partial C} \cdot \frac{\partial C}{\partial A}=\frac{\partial J}{\partial C}\cdot B^{T}
 
 Size and format:
 12pts, format svg
