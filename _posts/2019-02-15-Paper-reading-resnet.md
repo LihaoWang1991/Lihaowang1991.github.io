@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      Simple Understanding of Mask R-CNN
-date:       2019-02-02
+title:      Simple Understanding of ResNet
+date:       2019-02-15
 author:     Lihao Wang
 header-img: img/post-bg-universe.jpg
 catalog: true
