@@ -49,7 +49,7 @@ The output of the netwrok is a 7 × 7 × 30 tensor. That is, for each cell of th
 *  B (number of possible bounding boxes, B = 2 in the paper) × 5 predictions of each bounding boxes: x, y, w, h, and confidence,  The (x, y) coordinates represent the center
 of the box relative to the bounds of the grid cell. The width and height are predicted relative to the whole image. Finally the confidence prediction represents the IOU between the predicted box and any ground truth box <sup>\[1]</sup>.
 
-*  C (C = 20 in the paper) conditional class probabilities, <h>Pr(Class<sub>*i*</sub> | Object)</h>. These probabilities are conditioned on the grid cell containing an object.
+*  C (C = 20 in the paper) conditional class probabilities, Pr(Class<sub>*i*</sub> <h>|</h> Object). These probabilities are conditioned on the grid cell containing an object.
 
 
 #### Loss Function
@@ -79,5 +79,5 @@ As the following image shows, Fast YOLO was the fastest extant object detector a
 
 **Reference:**
 
-<h>[1]</h>: [YOLO V1 paper](https://arxiv.org/pdf/1506.02640.pdf)
+<h>[1]: [YOLO V1 paper](https://arxiv.org/pdf/1506.02640.pdf)</h>
 
