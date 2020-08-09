@@ -14,17 +14,17 @@ In general, modern NN-based object detection algorithms can be classified into 2
 
 **Two-stage methods:** They propose at first some candidate regions (stage 1), and then output classfication and bounding box information on each proposed region (stage 2). This kind of method usually has better accuracy compared to one-stage methods however they are relatively slower.
 
-**One-stage methods:** This group of methods predict diretly all the information such as classification and bounding box position as well as their size. Sometimes they are also called single-shot detectors because they take only one shot to output the detection.
+**One-stage methods:** This group of methods predict directly all the information such as classification and bounding box position as well as their size. Sometimes they are also called single-shot detectors because they take only one shot to output the detection.
 
-YOLO is considered as a milestone one-stage method because it attained the comparable performance with Faster R-CNN, the state-of-the-art two-stage method at that time but YOLO was much faster. In fact, up to today YOLO has evolved 4 generations and here is a timeline:
+YOLO is a milestone one-stage method because it achieved the comparable performance with Faster R-CNN, the state-of-the-art two-stage method at that time but YOLO was much faster. In fact, up to today YOLO has evolved 4 generations and here is a timeline:
 
 <img src="https://i.postimg.cc/90s4780S/image.jpg" style="width:600px;">
 
-I will show the key ideas of YOLO V1 in this blog. For a detailed comparison of YOLO V1 to V4, please refer to this [blog](https://lihaowang1991.github.io/2019/02/27/Paper-reading-yolo-v1-to-v4/).
+This blog shows the key ideas of YOLO V1. For a comparison of YOLO from V1 to V4, please refer to this [blog](https://lihaowang1991.github.io/2019/02/27/Paper-reading-yolo-v1-to-v4/).
 
 YOLO divides the input image into an S × S grid (S is 7 in the experiment of the paper). If the center of an object falls into a grid cell, that grid cell is responsible for detecting that object. Each grid cell predicts B bounding boxes (B is 2 in the experiment of the paper) and confidence scores for those boxes. These confidence scores reflect how confident the model is that the box contains an object and also how accurate it thinks the box is that it predicts. One predictor is assigned to be “responsible” for predicting an object based on which prediction has the highest current IOU with the ground truth. This leads to specialization between the bounding box predictors. Each predictor gets better at predicting certain sizes, aspect ratios, or classes of object, improving overall recall <sup>\[1]</sup>.
 
-This is a global model of YOLO <sup>\[1]</sup>:
+Here is a global model of YOLO <sup>\[1]</sup>:
 
 <img src="https://i.postimg.cc/zfsyyRgX/image.jpg" style="width:600px;">
 
@@ -49,7 +49,7 @@ The output of the netwrok is a 7 × 7 × 30 tensor. That is, for each cell of th
 *  B (number of possible bounding boxes, B = 2 in the paper) × 5 predictions of each bounding boxes: x, y, w, h, and confidence,  The (x, y) coordinates represent the center
 of the box relative to the bounds of the grid cell. The width and height are predicted relative to the whole image. Finally the confidence prediction represents the IOU between the predicted box and any ground truth box <sup>\[1]</sup>.
 
-*  C (C = 20 in the paper) conditional class probabilities, Pr(Class<sub>*i*</sub>|Object). These probabilities are conditioned on the grid cell containing an object.
+*  C (C = 20 in the paper) conditional class probabilities, <h>Pr(Class<sub>*i*</sub> | Object)</h>. These probabilities are conditioned on the grid cell containing an object.
 
 
 #### Loss Function
@@ -67,7 +67,7 @@ The network is trained for about 135 epochs on the training and validation data 
 The learning rate is special during the training, the schedule is as follows: For the first epochs the learning rate is slowly raised from 10<sup>-3</sup>
 to 10<sup>-2</sup>. This is because if starting at a high learning rate the model often diverges due to unstable gradients. The the training continues with 10<sup>-2</sup> for 75 epochs, then 10<sup>-3</sup> for 30 epochs, and finally 10<sup>-4</sup> for 30 epochs.
 
-To avoid overfitting dropout and extensive data augmentation are also applied.
+To avoid overfitting, dropout and extensive data augmentation are also applied.
 
 #### Performance
 
@@ -79,5 +79,5 @@ As the following image shows, Fast YOLO was the fastest extant object detector a
 
 **Reference:**
 
-1]: [YOLO V1 paper](https://arxiv.org/pdf/1506.02640.pdf)
+<h>[1]</h>: [YOLO V1 paper](https://arxiv.org/pdf/1506.02640.pdf)
 
