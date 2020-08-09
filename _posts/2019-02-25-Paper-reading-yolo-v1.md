@@ -20,7 +20,8 @@ YOLO is considered as a milestone one-stage method because it attained the compa
 
 I will show the key ideas of YOLO V1 in this blog. For a detailed comparison of YOLO V1 to V4, please refer to this [blog](https://lihaowang1991.github.io/2019/02/27/Paper-reading-yolo-v1-to-v4/).
 
-YOLO divides the input image into an S × S grid (S is 7 in the experiment of the paper). If the center of an object falls into a grid cell, that grid cell is responsible for detecting that object. Each grid cell predicts B bounding boxes (B is 2 in the experiment of the paper) and confidence scores for those boxes. These confidence scores reflect how confident the model is that the box contains an object and also how accurate it thinks the box is that it predicts<sup>\[1]</sup>.
+YOLO divides the input image into an S × S grid (S is 7 in the experiment of the paper). If the center of an object falls into a grid cell, that grid cell is responsible for detecting that object. Each grid cell predicts B bounding boxes (B is 2 in the experiment of the paper) and confidence scores for those boxes. These confidence scores reflect how confident the model is that the box contains an object and also how accurate it thinks the box is that it predicts. One predictor is assigned to be “responsible” for predicting an object based on which prediction has the highest current IOU with the ground truth. This leads to specialization between the bounding box predictors. Each predictor gets better at predicting certain
+sizes, aspect ratios, or classes of object, improving overall recall <sup>\[1]</sup>.
 
 #### Input
 
@@ -40,15 +41,36 @@ The Fast YOLO is designed to push the boundaries of fast object detection. Fast 
 
 The output of the netwrok is a 7 × 7 × 30 tensor. That is, for each cell of the 7 × 7 grid, a vector of dimension 30 is predicted. The 30 elements in each vector is composed of:
 
-*  B (number of possible bounding boxes, 2 here) × 5 predictions of each bounding boxes: x, y, w, h, and confidence,  The (x, y) coordinates represent the center
-of the box relative to the bounds of the grid cell. The width and height are predicted relative to the whole image. Finally the confidence prediction represents the IOU between the predicted box and any ground truth box<sup>\[1]</sup>.
+*  B (number of possible bounding boxes, B = 2 in the paper) × 5 predictions of each bounding boxes: x, y, w, h, and confidence,  The (x, y) coordinates represent the center
+of the box relative to the bounds of the grid cell. The width and height are predicted relative to the whole image. Finally the confidence prediction represents the IOU between the predicted box and any ground truth box <sup>\[1]</sup>.
 
-*  C conditional class probabilities (C = 20 in PASCAL VOC dataset), Pr(Class<sub>i</sub> | Object). These probabilities are conditioned on the grid cell containing an object.
+*  C (C = 20 in the paper) conditional class probabilities, Pr(Class<sub>i</sub> | Object). These probabilities are conditioned on the grid cell containing an object.
 
 
 #### Loss Function
 
-For me this is the most important part in YOLO. 
+For me this is the most important part in YOLO. The loss function is composed of 5 parts as following:
+
+<img src="https://i.postimg.cc/C5TBZn9s/image.jpg" style="width:600px;">
+
+where 1<sub>*i*</sub><sup style="margin-left:-5px">obj</sup> denotes if object appears in cell *i*, 1<sub>*ij*</sub><sup style="margin-left:-5px">obj</sup> denotes that the *j*th bounding box predictor in cell *i* is “responsible” for that prediction, and 1<sub>*ij*</sub><sup style="margin-left:-5px">noobj</sup> denotes that the *j*th bounding box predictor in cell *i* is not “responsible” for that prediction. The weight of each part is different: λ<sub>coord</sub> = 5 and λ<sub>noobj</sub> = 0.5.
+
+#### Training Parameters
+
+The network is trained for about 135 epochs on the training and validation data sets from PASCAL VOC 2007 and 2012. A batch size of 64, a momentum of 0.9 and a decay of 0.0005 are used.
+
+The learning rate is special during the training, the schedule is as follows: For the first epochs the learning rate is slowly raised from 10<sup>-3</sup>
+to 10<sup>-2</sup>. This is because if starting at a high learning rate the model often diverges due to unstable gradients. The the training continues with 10<sup>-2</sup> for 75 epochs, then 10<sup>-3</sup> for 30 epochs, and finally 10<sup>-4</sup> for 30 epochs.
+
+To avoid overfitting dropout and extensive data augmentation are also applied.
+
+#### Performance
+
+As the following image shows, Fast YOLO was the fastest extant object detector at that time. With 52.7% mAP, it is more than twice as accurate as prior work on real-time detection. YOLO's perfromance (mAP 63.4%) is not very far from that of Faster R-CNN (mAP 73.2%) but YOLO still maintain real-time performance.
+
+<img src="https://i.postimg.cc/dtxVxyVQ/image.jpg" style="width:400px;">
+
+
 
 **Reference:**
 
