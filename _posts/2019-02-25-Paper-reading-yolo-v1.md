@@ -79,5 +79,5 @@ As the following image shows, Fast YOLO was the fastest extant object detector a
 
 **Reference:**
 
-[1] [YOLO V1 paper](https://arxiv.org/pdf/1506.02640.pdf)
+[1]: [YOLO V1 paper](https://arxiv.org/pdf/1506.02640.pdf)
 
